@@ -2,14 +2,13 @@
 
 using namespace std;
 
-int n, a[20], k, item;
+int n, a[20], k;
 
-void insertItem(int a[], int n, int k, int item){
-    for(int i=n-1; i>=k; i--){
+void deleteItem(int a[], int n, int k){
+    for(int i=k; i<n; i++){
         a[i] = a[i+1];
     }
-    a[k] = item;
-    n++;
+    n--;
 
     cout<<"Done";
 
@@ -28,13 +27,9 @@ int main()
         cin>>a[i];
     }
 
-    cout<<"Enter the position where you want to enter the number";
+    cout<<"Enter the position of the number to be deleted";
     cin>> k;
 
-    cout<<"Enter the number you want to insert";
-    cin>> item;
-
-    insertItem(a, n, k, item);
-
+    deleteItem(a, n, k);
     return 0;
 }
