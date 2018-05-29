@@ -6,7 +6,7 @@ int n, a[20], k, item;
 
 void insertItem(int a[], int n, int k, int item){
     for(int i=n-1; i>=k; i--){
-        a[i] = a[i+1];
+        a[i+1] = a[i];
     }
     a[k] = item;
     n++;
@@ -14,7 +14,7 @@ void insertItem(int a[], int n, int k, int item){
     cout<<"Done";
 
     for(int j=0; j<n; j++){
-        cout<<a[j]+" ";
+        cout<<a[j]<< " ";
     }
 }
 

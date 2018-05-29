@@ -6,14 +6,14 @@ int n, a[20], k;
 
 void deleteItem(int a[], int n, int k){
     for(int i=k; i<n; i++){
-        a[i] = a[i+1];
+        a[i+1] = a[i];
     }
     n--;
 
     cout<<"Done";
 
     for(int j=0; j<n; j++){
-        cout<<a[j]+" ";
+        cout<<a[j]<<" ";
     }
 }
 
