@@ -2,38 +2,38 @@
 
 using namespace std;
 
-int partition(int a[], int start, int end){
-    int pivotValue = a[start];
-    int pivotPosition = start;
-     for (int i=start+1; i<=end; i++)
-     {
-        if (pivotValue > a[i])
-       {
-          swap(a[pivotPosition+1], a[i]);
-          swap(a[pivotPosition] , a[pivotPosition+1]);
-          pivotPosition++;
-       }
-     }
-    return pivotPosition;
+int partitionE(int a[], int low, int high){
+    int pivot = a[high];
+    int i = low - 1;
+
+    for(int j = low; j <= high-1; j++){
+        if(a[j] <= pivot){
+            i++;
+            swap(a[i], a[j]);
+        }
+    }
+    swap(a[i+1], a[high]);
+    return (i+1);
 }
 
-void quickSort(int a[], int n, int low, int high){
+void quickSort(int a[], int low, int high){
     if(low < high){
-        int pi = partition(a, low, high);
-        quickSort(a, n, low, pi-1);
-        quickSort(a, n, pi+1, high);
-    }
+        int pi = partitionE(a, low, high);
 
-    for(int j=0; j<n; j++){
-        cout<<a[j]<<" ";
+        quickSort(a, low, pi - 1);
+        quickSort(a, pi + 1, high);
+    }
+}
+
+void printArray(int a[], int n){
+    for(int i=0; i<n; i++){
+        cout<<a[i]<<" ";
     }
 }
 
 int main()
 {
     int n, a[20];
-    int low = 0;
-    int high = n;
 
     cout<<"Enter the size";
     cin>> n;
@@ -43,6 +43,8 @@ int main()
         cin>>a[i];
     }
 
-    quickSort(a, n, low, high);
+    quickSort(a, 0, n-1);
+
+    printArray(a, n);
     return 0;
 }
