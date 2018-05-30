@@ -4,13 +4,13 @@
 
 using namespace std;
 
-void reverseArray(int a[], int start, int end){
-    while(start < end){
+void reverseArray(int a[], int start, int endw){
+    while(start < endw){
         int temp = a[start];
-        a[start] = a[end];
-        a[end] = temp;
+        a[start] = a[endw];
+        a[endw] = temp;
         start ++;
-        end --;
+        endw --;
     }
 }
 

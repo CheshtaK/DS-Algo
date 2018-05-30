@@ -11,8 +11,6 @@ void insertItem(int a[], int n, int k, int item){
     a[k] = item;
     n++;
 
-    cout<<"Done";
-
     for(int j=0; j<n; j++){
         cout<<a[j]<< " ";
     }
