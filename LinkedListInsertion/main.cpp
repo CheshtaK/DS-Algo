@@ -5,7 +5,7 @@ using namespace std;
 struct Node{
     int data;
     Node *next;
-} *start, *second, *newptr, *save, *ptr, *last;
+} *start, *second, *third, *newptr, *save, *ptr, *last;
 
 void printList(Node *n){
     while(n != NULL){
@@ -43,23 +43,35 @@ void insertEnd(Node* np){
     }
 }
 
+void insertAfter(Node* prev, Node* np){
+    if(prev == NULL)
+        cout<<"The previous node cannot be null";
+    np -> next = prev -> next;
+    prev -> next = np;
+}
+
 int main()
 {
     start = new Node;
     second = new Node;
+    third = new Node;
 
     start -> data = 4;
     start -> next = second;
 
     second -> data = 5;
-    second -> next = NULL;
+    second -> next = third;
+
+    third -> data = 6;
+    third -> next = NULL;
 
     int data;
     cin>> data;
 
     newptr = newNode(data);
     //insertBeg(newptr);
-    insertEnd(ptr);
+    //insertEnd(newptr);
+    insertAfter(second, newptr);
     printList(start);
     return 0;
 }
