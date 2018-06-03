@@ -5,7 +5,7 @@ using namespace std;
 struct Node{
     int data;
     Node *next;
-} *start, *newptr, *save, *ptr, *temp1, *temp2;
+} *start, *newptr, *save, *ptr;
 
 void printList(Node *n){
     while(n != NULL){
@@ -31,7 +31,18 @@ void insertBeg(Node* np){
     }
 }
 
+void deleteNode(){
+    if(start == NULL)
+        cout<<"Overflow";
+    else{
+        ptr = start;
+        start = start -> next;
+        delete ptr;
+    }
+}
+
 void deleteNode(int n){
+    Node *temp1, *temp2;
     temp1 = start;
 
     if(n == 1){
@@ -39,12 +50,34 @@ void deleteNode(int n){
         delete temp1;
         return;
     }
+
     int i;
     for(i = 0; i < n-2; i++)
         temp1 = temp1 -> next; //n-1 node
     temp2 = temp1 -> next; // n node
     temp1 -> next = temp2 -> next; //n-1 points to n+1
     delete temp2;
+}
+
+void deleteNodeItem(int item){
+    Node *temp, *prev;
+    temp = start;
+    prev = temp;
+
+    if(temp != NULL && temp -> data == item){
+        start = temp -> next;
+        delete temp;
+    }
+
+    while(temp != NULL && temp -> data != item){
+        prev = temp;
+        temp = temp -> next;
+    }
+
+    if(temp == NULL)
+        return;
+    prev -> next  = temp -> next;
+    delete temp;
 }
 
 int main()
@@ -69,11 +102,17 @@ int main()
     printList(start);
     cout<<endl;
 
-    int n;
-    cin>>n;
+    int item;
+    cin>>item;
 
-    deleteNode(n);
+    //int n;
+    //cin>>n;
 
+    //deleteNode();
+
+    //deleteNode(n);
+
+    deleteNodeItem(item);
     printList(start);
 
     return 0;
