@@ -69,9 +69,9 @@ int main()
     cin>> data;
 
     newptr = newNode(data);
-    //insertBeg(newptr);
+    insertBeg(newptr);
     //insertEnd(newptr);
-    insertAfter(second, newptr);
+    //insertAfter(second, newptr);
     printList(start);
     return 0;
 }
