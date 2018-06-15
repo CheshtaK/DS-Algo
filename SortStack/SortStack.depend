@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1529081361 source:c:\users\chesh\desktop\c++ files\sortstack\main.cpp
+	<iostream>
+	<stack>
+
