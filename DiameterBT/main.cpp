@@ -41,6 +41,7 @@ int diameter(Node* tree){
     return max(lheight + rheight + 1, max(ldiameter, rdiameter));
 }
 
+//Time Complexity - O(n)
 int diameterOpt(Node* root, int* height){
     int lh = 0, rh = 0;
     int ldiameter = 0, rdiameter = 0;
