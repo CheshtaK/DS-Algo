@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1531294204 source:c:\users\chesh\desktop\c++ files\btverticalmap\main.cpp
+	<iostream>
+	<map>
+	<vector>
+
